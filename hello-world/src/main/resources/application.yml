@@ -1,7 +1,9 @@
 server:
-  port: 8081
+  port: 8765
 
 spring:
+  profiles:
+    active: test
   application:
     name: ha-hello
   resources:
@@ -14,6 +16,26 @@ spring:
     password: admin
     pool:
       enabled: false
+  datasource:
+    database1:
+      url: jdbc:mysql://127.0.0.1:3306/ewins?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true #数据库连接符
+      username: root
+      password: root
+      driverClassName: com.mysql.jdbc.Driver
+    database2:
+      url: jdbc:mysql://192.168.1.21:3306/ewins?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true #数据库连接符
+      username: root
+      password: root
+      driverClassName: com.mysql.jdbc.Driver
+    #    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database-platform: org.hibernate.dialect.MySQL5Dialect
 
 devtools:
   livereload:
