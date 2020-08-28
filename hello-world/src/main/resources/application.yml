@@ -16,6 +16,14 @@ spring:
     password: admin
     pool:
       enabled: false
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: root
+    publisher-returns: true
+    publisher-confirm-type: correlated
+
   datasource:
     database1:
       url: jdbc:mysql://127.0.0.1:3306/ewins?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true #数据库连接符
